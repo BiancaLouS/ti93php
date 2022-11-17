@@ -1,1 +1,7 @@
-/*Bianca.*/
+
+.tabela{
+    border: 1px solid blue;
+}
+.tabela td{
+    border: 1px solid red;
+}
