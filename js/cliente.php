@@ -18,7 +18,7 @@
         $cpf = $_POST['cpf'];
         $insertSql = "insert cliente (nome, cpf) values('$nome','$cpf')";
         $resultado = $conn->query($insertSql);
-        header('location: cliente;php');
+        header('location: cliente.php');
     }
 ?>
 
@@ -38,12 +38,24 @@
                 <input type="text" name="cod" id=""></label>
         </div>
         <div class="campo">
-            <label for="cpf">Nome
+            <label for="nome">Nome
                 <input type="text" name="nome" id=""></label>
         </div>
         <div class="campo">
             <label for="cpf">CPF
                 <input type="number" name="cpf" id=""></label>
+        </div>
+        <div>
+            <button type="submit" name="bt-enviar">Enviar</button>
+        </div>
+        <div class="campo">
+            <label for="cpf">Turno
+                <select name="turno" id="">
+                    <option value="manha">Manhã</option>
+                    <option value="tarde">Tarde</option>
+                    <option value="noite">Noite</option>
+                </select>
+            </label>
         </div>
     </form>   
     <table class="tabela">
@@ -55,10 +67,9 @@
             <tbody>
                 <?php do {?>
                     <tr>
-                        <td>
-                            <?php echo $row['cod_cliente'];?></td>
-                            <?php echo $row['nome'];?></td>
-                            <?php echo $row['cpf'];?></td>
+                        <td><?php echo $row['cod_cliente'];?></td>
+                        <td><?php echo $row['nome'];?></td>
+                        <td><?php echo $row['cpf'];?></td>
                     </tr>
                 <?php } while ($row = $lista->fetch())?>
             </tbody>
